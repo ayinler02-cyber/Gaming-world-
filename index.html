@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Minna Gaming Tournament</title>
+<style>
+body{background:#0f0f0f;color:white;font-family:sans-serif;text-align:center;padding:20px}
+.card{background:#1e1e1e;padding:20px;border-radius:15px;max-width:400px;margin:auto;box-shadow:0 0 20px #00ff88}
+input{width:90%;padding:12px;margin:8px;border-radius:8px;border:none}
+button{width:95%;padding:12px;background:#00ff88;color:black;font-weight:bold;border:none;border-radius:8px;cursor:pointer;margin-top:10px}
+button:hover{background:#00cc6a}
+h1{color:#00ff88}
+</style>
+</head>
+<body>
+<h1>🎮 GAMING TOURNAMENT</h1>
+<div class="card" id="authBox">
+<h2>Register / Login</h2>
+<input id="email" type="email" placeholder="Email">
+<input id="password" type="password" placeholder="Password">
+<input id="gameId" type="text" placeholder="Your Game ID">
+<button onclick="register()">REGISTER FOR TOURNAMENT</button>
+<button onclick="login()" style="background:white">LOGIN</button>
+<p id="msg"></p>
+</div>
+
+<div class="card" id="dashboard" style="display:none">
+<h2>Welcome <span id="userEmail"></span>!</h2>
+<p>Your Game ID: <span id="showGameId"></span></p>
+<button onclick="logout()">LOGOUT</button>
+</div>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged
